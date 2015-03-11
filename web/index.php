@@ -14,7 +14,15 @@ function getVersion() {
     return 'latest';
 }
 
-$markdown = $_GET['text'];
+if (!isset($_GET['text'])) {
+    $markdown = '';
+} else {
+    $markdown = $_GET['text'];
+    if (mb_strlen($markdown) > 1000) {
+        http_response_code(413); // Request Entity Too Large
+        $markdown = "Input must be less than 1,000 characters";
+    }
+}
 
 $converter = new CommonMarkConverter();
 $html = $converter->convertToHtml($markdown);
