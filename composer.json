@@ -1,0 +1,17 @@
+{
+    "name": "colinodell/commonmark-babelmark",
+    "description": "Simple API for Babelmark 2 integration",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Colin O'Dell",
+            "email": "colinodell@gmail.com"
+        }
+    ],
+    "require": {
+        "league/commonmark": "*"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    }
+}
