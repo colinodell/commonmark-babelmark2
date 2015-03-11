@@ -1,35 +1,3 @@
 <?php
-use League\CommonMark\CommonMarkConverter;
+echo 'Psst... try babelmark.php instead :)';
 
-require_once __DIR__.'/../vendor/autoload.php';
-
-function getVersion() {
-    $lock = json_decode(file_get_contents(__DIR__.'/../composer.lock'), true);
-    foreach ($lock['packages'] as $package) {
-        if ($package['name'] === 'league/commonmark') {
-            return $package['version'];
-        }
-    }
-
-    return 'latest';
-}
-
-if (!isset($_GET['text'])) {
-    $markdown = '';
-} else {
-    $markdown = $_GET['text'];
-    if (mb_strlen($markdown) > 1000) {
-        http_response_code(413); // Request Entity Too Large
-        $markdown = "Input must be less than 1,000 characters";
-    }
-}
-
-$converter = new CommonMarkConverter();
-$html = $converter->convertToHtml($markdown);
-
-header('Content-Type: application/json');
-echo json_encode([
-    'name' => 'league/commonmark',
-    'version' => getVersion(),
-    'html' => $html,
-]);
