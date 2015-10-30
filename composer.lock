@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "8a44de8df8b4eb3c80e6ec925fc45ae1",
     "packages": [
         {
             "name": "league/commonmark",
-            "version": "0.8.0",
+            "version": "0.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "91696c88df298f75fdd2075e4bb19c6dbd7338ca"
+                "reference": "d22d6a6a4b049faccc2f8e491cce6076eeb165c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/91696c88df298f75fdd2075e4bb19c6dbd7338ca",
-                "reference": "91696c88df298f75fdd2075e4bb19c6dbd7338ca",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d22d6a6a4b049faccc2f8e491cce6076eeb165c7",
+                "reference": "d22d6a6a4b049faccc2f8e491cce6076eeb165c7",
                 "shasum": ""
             },
             "require": {
@@ -29,16 +29,21 @@
             },
             "require-dev": {
                 "erusev/parsedown": "~1.0",
-                "jgm/commonmark": "0.19",
+                "jgm/commonmark": "0.22",
+                "jgm/smartpunct": "0.22",
                 "michelf/php-markdown": "~1.4",
+                "mikehaertl/php-shellcommand": "~1.1.0",
                 "phpunit/phpunit": "~4.3",
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "symfony/finder": "~2.3"
             },
+            "bin": [
+                "bin/commonmark"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.8-dev"
+                    "dev-master": "0.12-dev"
                 }
             },
             "autoload": {
@@ -65,22 +70,22 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2015-04-29 18:01:46"
+            "time": "2015-09-25 12:40:32"
         }
     ],
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v67",
+            "version": "v71",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "8da6b92aad89b2e7254f5eb2ad39ffac315b2282"
+                "reference": "115ddf16d45cff621961d8dd57e14ba1ff1e41dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/8da6b92aad89b2e7254f5eb2ad39ffac315b2282",
-                "reference": "8da6b92aad89b2e7254f5eb2ad39ffac315b2282",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/115ddf16d45cff621961d8dd57e14ba1ff1e41dd",
+                "reference": "115ddf16d45cff621961d8dd57e14ba1ff1e41dd",
                 "shasum": ""
             },
             "bin": [
@@ -111,7 +116,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2015-03-24 19:49:58"
+            "time": "2015-07-14 00:38:23"
         }
     ],
     "aliases": [],
