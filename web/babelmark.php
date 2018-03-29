@@ -4,11 +4,22 @@ use League\CommonMark\CommonMarkConverter;
 require_once __DIR__.'/../vendor/autoload.php';
 
 function getVersion() {
+    if (defined('League\CommonMark\CommonMarkConverter::VERSION')) {
+        $version = CommonMarkConverter::VERSION;
+        if (preg_match('/^[\d\.]+/$', $version) === 1) {
+            return $version;
+        }
+    }
+
     $lock = json_decode(file_get_contents(__DIR__.'/../composer.lock'), true);
     foreach ($lock['packages'] as $package) {
         if ($package['name'] === 'league/commonmark') {
             return $package['version'];
         }
+    }
+
+    if (isset($version)) {
+        return $version;
     }
 
     return 'latest';
