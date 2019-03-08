@@ -6,7 +6,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 function getVersion() {
     if (defined('League\CommonMark\CommonMarkConverter::VERSION')) {
         $version = CommonMarkConverter::VERSION;
-        if (preg_match('/^[\d\.]+/$', $version) === 1) {
+        if (preg_match('/^[\d\.]+$/', $version) === 1) {
             return $version;
         }
     }
