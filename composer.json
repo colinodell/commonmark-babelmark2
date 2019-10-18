@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "league/commonmark": "*"
+        "php": "^7.2",
+        "league/commonmark": "^1.0"
     }
 }
