@@ -1,4 +1,5 @@
 <?php
+use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 require_once __DIR__.'/../vendor/autoload.php';
