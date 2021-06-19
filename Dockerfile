@@ -10,7 +10,7 @@ RUN set -ex \
         && apt-get install -y git unzip \
         && rm -rf /var/lib/apt/lists/*
 
-COPY --chown=www-data:www-data . .
+COPY . .
 
 RUN set -ex \
 	&& mv web html \
@@ -18,6 +18,7 @@ RUN set -ex \
 	&& ./composer.phar install -a --no-progress --no-dev \
 	&& rm composer.phar \
 	&& chown -R www-data:www-data /var/www/html \
-	&& chmod -R a-w /var/www/html
+	&& chmod -R a-w /var/www/html \
+	&& echo "opcache.preload=/var/www/preload.php" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini \
+	&& echo "opcache.preload_user=www-data" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
-USER www-data
