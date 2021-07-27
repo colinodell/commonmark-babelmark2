@@ -1,29 +1,12 @@
 <?php
-use League\CommonMark\CommonMarkConverter;
+
+use Composer\InstalledVersions;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
 function getVersion() {
-    if (defined('League\CommonMark\CommonMarkConverter::VERSION')) {
-        $version = CommonMarkConverter::VERSION;
-        if (preg_match('/^[\d\.]+$/', $version) === 1) {
-            return $version;
-        }
-    }
-
-    $lock = json_decode(file_get_contents(__DIR__.'/../composer.lock'), true);
-    foreach ($lock['packages'] as $package) {
-        if ($package['name'] === 'league/commonmark') {
-            return $package['version'];
-        }
-    }
-
-    if (isset($version)) {
-        return $version;
-    }
-
-    return 'latest';
+    return InstalledVersions::getPrettyVersion('league/commonmark');
 }
 
 if (!isset($_GET['text'])) {
@@ -37,7 +20,7 @@ if (!isset($_GET['text'])) {
 }
 
 $converter = new GithubFlavoredMarkdownConverter();
-$html = $converter->convertToHtml($markdown);
+$html = (string) $converter->convertToHtml($markdown);
 
 header('Content-Type: application/json');
 echo json_encode([
