@@ -1,4 +1,4 @@
-FROM php:8.0-apache
+FROM php:8.2-apache
 MAINTAINER Colin O'Dell <colinodell@gmail.com>
 
 WORKDIR /var/www
